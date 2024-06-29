@@ -19,6 +19,9 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #EEE7DA; /* Cor do cabeçalho */
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .logo {
@@ -52,7 +55,7 @@ body {
 
 .section-row { /* Nova classe para agrupar as seções */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Espaçamento uniforme entre os quadrados */
     align-items: flex-start;
     margin-bottom: 20px;
 }
@@ -98,7 +101,7 @@ body {
 
 /* Aplicando a mesma largura para todos os quadros */
 .quadro {
-    width: 33.33%; /* 100% dividido por 3, para 3 seções iguais */
+    width: 300px; /* Largura do timer */
     box-sizing: border-box; /* Inclui padding e bordas na largura */
     margin-right: 10px;
 }
@@ -149,12 +152,10 @@ body {
     justify-content: space-between;
 }
 
-.happy-day-items {
-    width: 45%;
-}
-
-.calendario {
-    width: 45%;
+.happy-day-items, .calendario { /* Definindo a largura dos novos quadrados */
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Espaçamento entre os quadrados */
 }
 
 .happy-day-items .adicionar-coisas {
@@ -177,7 +178,7 @@ body {
 .footer {
     text-align: center;
     margin-top: 20px;
-    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
+    background-color: #EEE7DA; /* Cor do rodapé */
     padding: 20px;
     border-radius: 5px;
 }
@@ -194,9 +195,62 @@ body {
 
 /* Ajustando a largura dos quadrados */
 .section.quadro {
-    width: 300px;
+    width: 300px; /* Largura do timer */
 }
 
 .section-row {
     justify-content: space-around; /* Ajustando o espaçamento */
+}
+
+/* Quadrados "Happy Day" e "Calendário" maiores */
+.section.quadro.grande {
+    width: 450px; /* Ajuste a largura conforme necessário */
+}
+
+/* Definindo a mesma cor de fundo para "Happy Day" e "Calendário" */
+.section.quadro.grande.happy-day, 
+.section.quadro.grande.calendario {
+    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
+}
+
+/* Alinhando verticalmente o conteúdo dentro do "Happy Day" */
+.section.quadro.grande.happy-day .happy-day-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Estilos para o calendário */
+#calendario-container {
+    /* Estilos para o container do calendário */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff; /* Branco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#calendario-container table {
+    border-collapse: collapse;
+}
+
+#calendario-container th, 
+#calendario-container td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd; /* Borda cinza claro */
+}
+
+#calendario-container th {
+    background-color: #eee; /* Cinza claro */
+}
+
+
+#calendario-container .dia-hoje {
+    background-color: #228B22; /* Verde escuro */
+    color: #fff; /* Branco */
+}
+
+#calendario-container .dia-outro-mes {
+    color: #aaa; /* Cinza claro */
 }
