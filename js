@@ -51,3 +51,80 @@ resetButton.addEventListener('click', () => {
     pauseButton.disabled = false;
   });
 });
+
+// Seleciona o container do calendário
+const calendarioContainer = document.getElementById('calendario-container');
+
+// Função para criar o calendário
+function criarCalendario() {
+    const hoje = new Date();
+    const anoAtual = hoje.getFullYear();
+    const mesAtual = hoje.getMonth();
+
+    // Cria a tabela do calendário
+    const calendario = document.createElement('table');
+    calendarioContainer.appendChild(calendario);
+
+    // Cria a linha com o nome do mês e o ano
+    const linhaMes = document.createElement('tr');
+    const celulaMes = document.createElement('th');
+    celulaMes.colSpan = 7; // Define a célula para ocupar todas as colunas
+    celulaMes.textContent = `${mesNome(mesAtual)} ${anoAtual}`;
+    linhaMes.appendChild(celulaMes);
+    calendario.appendChild(linhaMes);
+
+    // Cria a linha com os dias da semana
+    const linhaDias = document.createElement('tr');
+    const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
+    diasSemana.forEach(dia => {
+        const celulaDia = document.createElement('th');
+        celulaDia.textContent = dia;
+        linhaDias.appendChild(celulaDia);
+    });
+    calendario.appendChild(linhaDias);
+
+    // Cria as células dos dias do mês
+    const diasDoMes = obterDiasDoMes(anoAtual, mesAtual);
+    let diaAtual = 1;
+    for (let i = 0; i < 6; i++) { // 6 linhas no máximo
+        const linha = document.createElement('tr');
+        for (let j = 0; j < 7; j++) { // 7 colunas
+            const celula = document.createElement('td');
+            if (i === 0 && j < diasDoMes[0]) {
+                // Preenche os dias do mês anterior
+                celula.textContent = diasDoMes[0] - j;
+                celula.classList.add('dia-outro-mes');
+            } else if (diaAtual <= diasDoMes[1]) {
+                // Preenche os dias do mês atual
+                celula.textContent = diaAtual;
+                celula.classList.add('dia');
+                if (diaAtual === hoje.getDate() && mesAtual === hoje.getMonth() && anoAtual === hoje.getFullYear()) {
+                    celula.classList.add('dia-hoje'); // Marca o dia de hoje
+                }
+                diaAtual++;
+            } else {
+                // Preenche os dias do mês seguinte
+                celula.textContent = j + 1;
+                celula.classList.add('dia-outro-mes');
+            }
+            linha.appendChild(celula);
+        }
+        calendario.appendChild(linha);
+    }
+}
+
+// Função para obter o nome do mês
+function mesNome(mes) {
+    const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    return meses[mes];
+}
+
+// Função para obter os dias do mês
+function obterDiasDoMes(ano, mes) {
+    const ultimoDiaDoMes = new Date(ano, mes + 1, 0).getDate();
+    const primeiroDiaDoMes = new Date(ano, mes, 1).getDay();
+    return [primeiroDiaDoMes, ultimoDiaDoMes];
+}
+
+// Cria o calendário quando a página carregar
+criarCalendario();
