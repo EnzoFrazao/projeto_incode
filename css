@@ -271,3 +271,22 @@ body {
 .section.quadro.grande.calendario {
     background-color: #D8EFD3; /* Cinza claro */ /* Cor do timer */
 }
+
+/* Ajustando a altura do Timer */
+.section.quadro.timer-quadro {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: fit-content; /* Ajusta a altura do timer */
+}
+
+/* Estilos para o input de edição */
+.edit-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 16px;
+}
