@@ -1,15 +1,15 @@
 body {
-    font-family: sans-serif;
+    font-family: Inter;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #F2F2F2; /* Fundo cinza claro */
 }
 
 .container {
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #FFFFFF; /* Branco */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -34,6 +34,7 @@ body {
 .logo h1 {
     margin: 0;
     font-size: 24px;
+    color: #228B22; /* Verde escuro */
 }
 
 .modo-noturno {
@@ -45,31 +46,39 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #ccc; /* Cinza claro */
     margin-right: 10px;
+}
+
+.section-row { /* Nova classe para agrupar as seções */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .section {
     margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
 }
 
 .section-title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #228B22; /* Verde escuro */
 }
 
-.to-do-list {
-    display: flex;
-    justify-content: space-between;
+/* Estilos para os quadros da To-do List e Lembretes */
+.to-do-list-quadro, .lembretes-quadro, .timer {
+    width: 100%; /* Ocultar o scroll horizontal */
+    box-sizing: border-box; 
 }
 
-.to-do-list-items {
-    width: 45%;
-}
-
-.lembretes {
-    width: 45%;
+.to-do-list-quadro {
+    margin-bottom: 20px;
 }
 
 .to-do-list-items ul {
@@ -79,27 +88,37 @@ body {
 
 .to-do-list-items li {
     margin-bottom: 5px;
+    color: #000000; /* Preto */
 }
 
 .lembretes .anote-lembretes {
     font-size: 14px;
-    color: #777;
+    color: #777; /* Cinza escuro */
+}
+
+/* Aplicando a mesma largura para todos os quadros */
+.quadro {
+    width: 33.33%; /* 100% dividido por 3, para 3 seções iguais */
+    box-sizing: border-box; /* Inclui padding e bordas na largura */
+    margin-right: 10px;
+}
+
+.to-do-list-quadro, .lembretes-quadro, .timer {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .timer {
-    width: 300px;
-    height: 150px;
-    background-color: #eee;
+    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
+    padding: 20px;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .timer .time {
     font-size: 48px;
     font-weight: bold;
+    color: #228B22; /* Verde escuro */
 }
 
 .timer button {
@@ -110,21 +129,18 @@ body {
     cursor: pointer;
     display: inline-block;
     margin-right: 5px;
-}
-
-.timer .start {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #228B22; /* Verde escuro */
+    color: #FFFFFF; /* Branco */
 }
 
 .timer .pause {
-    background-color: #ccc;
+    background-color: #ccc; /* Cinza claro */
     display: none; 
 }
 
 .timer .reset {
-    background-color: #f00;
-    color: #fff;
+    background-color: #f00; /* Vermelho */
+    color: #fff; /* Branco */
     display: none; 
 }
 
@@ -143,24 +159,44 @@ body {
 
 .happy-day-items .adicionar-coisas {
     font-size: 14px;
-    color: #777;
+    color: #777; /* Cinza escuro */
 }
 
 .notas {
     margin-top: 20px;
+    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .notas .anote-anotacoes {
     font-size: 14px;
-    color: #777;
+    color: #777; /* Cinza escuro */
 }
 
 .footer {
     text-align: center;
     margin-top: 20px;
+    background-color: #C0C0C0; /* Cinza claro */ /* Cor do timer */
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .footer p {
     font-size: 14px;
-    color: #777;
+    color: #777; /* Cinza escuro */
+}
+
+/* To-do List sem cor de fundo */
+.section.quadro:first-child { /* Seleciona o primeiro quadro */
+    background-color: #F2F2F2; /* Cor do fundo da página */
+}
+
+/* Ajustando a largura dos quadrados */
+.section.quadro {
+    width: 300px;
+}
+
+.section-row {
+    justify-content: space-around; /* Ajustando o espaçamento */
 }
