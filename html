@@ -21,10 +21,10 @@
 
         <p>Somos um site com o intuito de ajudar você a melhorar sua produtividade e foco.</p>
 
-        <div class="section">
-            <h2 class="section-title">To-do List</h2>
-            <div class="to-do-list">
-                <div class="to-do-list-items">
+        <div class="section-row">  <!-- Nova div para agrupar as seções -->
+            <div class="section quadro">  <!-- Adicionando a classe "quadro" -->
+                <h2 class="section-title">To-do List</h2>
+                <div class="to-do-list-quadro">  <!-- Quadro da To-do List -->
                     <h3>Adicione suas tarefas:</h3>
                     <ul>
                         <li>Exemplo de tarefa</li>
@@ -34,8 +34,10 @@
                         <li>Exemplo de tarefa</li>
                     </ul>
                 </div>
-                <div class="lembretes">
-                    <h3>Lembretes:</h3>
+            </div>
+            <div class="section quadro">  <!-- Adicionando a classe "quadro" -->
+                <h2 class="section-title">Lembretes</h2>
+                <div class="lembretes-quadro">  <!-- Quadro dos Lembretes -->
                     <p class="anote-lembretes">Anote seus lembretes aqui:</p>
                     <ul>
                         <li></li>
@@ -46,17 +48,16 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="section">
-            <div class="timer">
-                <img src="timer.svg" alt="Ícone de cronômetro">
-                <p class="time">30:00</p>
-                <button class="start">start</button>
-                <button class="pause" style="display: none;">pause</button>
-                <button class="reset" style="display: none;">reset</button>
+            <div class="section quadro">  <!-- Adicionando a classe "quadro" -->
+                <div class="timer">
+                    <img src="timer.svg" alt="Ícone de cronômetro">
+                    <p class="time">30:00</p>
+                    <button class="start">start</button>
+                    <button class="pause" style="display: none;">pause</button>
+                    <button class="reset" style="display: none;">reset</button>
+                </div>
             </div>
-        </div>
+        </div>  <!-- Fim da div section-row -->
 
         <div class="section">
             <h2 class="section-title">Happy day:</h2>
